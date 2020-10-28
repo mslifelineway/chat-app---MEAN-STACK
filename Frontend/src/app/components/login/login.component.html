@@ -1,0 +1,30 @@
+<div class="centered-content">
+    <div class="centered-box form-fields">
+        <div class="signup-content">
+            <h1 class="is-pulled-left">Login</h1>
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input #emailInput class="input" type="text" placeholder="enter your email">
+                    <label class="inputError has-text-danger">{{emailError}} </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Password </label>
+                <div class="control">
+                    <input #passwordInput class="input" type="text" placeholder="xxxxxxxx">
+                    <label class="inputError has-text-danger">{{passwordError}} </label>
+                </div>
+            </div>
+            <div class="button-info-area">
+                <div class="control button-groups">
+                    <button class="button" (click)="loginUser(emailInput.value, passwordInput.value)">Login</button>
+                </div>
+                <a class="text-link " routerLink="/signup">Need Sign Up ? </a>
+                <label class="has-text-danger">{{loginInfo}} </label>
+            </div>
+            
+        </div>
+    </div>
+</div>

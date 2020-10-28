@@ -1,0 +1,261 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bulma/bulma.sass";
+
+//DEFAULT CSS (GLOBAL CSS)
+
+$primary: #051c0f;
+$turquoise: #0f2c1b;
+$green: #27d7a1;
+$light-green: #45f69e;
+$dark-green: rgb(0, 100, 80);
+$light: #f8f8f8;
+$yellowRGB: rgba(225, 228, 91);
+
+.text-shadow {
+    color: white;
+    font: bold 52px Helvetica, Arial, Sans-Serif;
+    text-shadow: 1px 1px $yellowRGB, 2px 2px $yellowRGB, 3px 3px $yellowRGB;
+}
+
+html {
+    background: linear-gradient(to right top, $turquoise, $primary);
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.custom-yellow-box-shadow {
+    box-shadow: 0 0.5em 1em -0.125em rgba(225, 228, 91, 1), 0 0px 0 1px rgba(225, 228, 91, 0.5);
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    // background-color: $primary;
+}
+
+.centered-box {
+    // background: linear-gradient(to right top, $turquoise, $green);
+    background-color: $primary;
+    border: 5px solid rgb(225, 228, 91);
+    height: 80%;
+    width: 60%;
+    border-radius: 5px;
+    display: flex;
+    box-shadow: 0 0.5em 1em -0.125em rgba(225, 228, 91, 1), 0 0px 0 1px rgba(225, 228, 91, 0.5);
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: $primary;
+    height: 100%;
+    width: 220px;
+    border-right: 3px solid rgb(225, 228, 91);
+}
+
+.chat-container {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container {
+    height: 80px;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 3px solid rgb(225, 228, 91);
+    display: flex;
+}
+
+.friend-lists {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.friend-profile {
+    height: 80px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-grow: 1;
+    background-color: rgb(106, 155, 8);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #aa7c27;
+    }
+}
+
+.message-box {
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+.message-container {
+    
+
+    &:hover {
+        .options {
+            display: block;
+        }
+    }
+}
+.message-item {
+    color: rgb(44, 51, 44);
+    padding: 3px 10px;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-bottom: 15px;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    
+    .options {
+        display: none;
+        position: absolute;
+        left: -48px;
+        top: -5px;
+        border-radius: 50%;
+        z-index: 2;
+
+        &:hover {
+            visibility: visible;;
+        }
+    }
+}
+
+.message-item label {
+    font-weight: 600;
+    size: 18px;
+    color: yellow;
+}
+
+.message-item span {
+    size: 12px;
+    color: $green;
+}
+
+.margin-right {
+    margin-right: 50px;
+}
+
+.margin-left {
+    margin-left: 50px;
+}
+
+.write-message-box {
+    border-top: 3px solid yellow;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.form-fields input::placeholder {
+    color: yellow;
+}
+.field {
+    width: 50%;
+}
+.form-fields input {
+    background-color: transparent;
+    color: yellow;
+    min-width: 70%;
+    outline-color: yellow;
+    flex-grow: 1;
+}
+
+.profile-image {
+    border: 1px solid yellow;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 1px;
+}
+
+.profile-details {
+    padding: 3px 5px;
+}
+
+.inputError {
+    font-size: 12px;
+}
+
+.button-info-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.button-groups {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    width: 30px;
+    margin: 0 5px;
+    background-color: greenyellow;
+    color: rgb(192, 72, 72);
+    padding: 0px 40px;
+    font-weight: 900;
+}
+
+.text-link {
+    color: rgb(86, 133, 235);
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px 0;
+    text-align: center;
+
+    &:hover {
+        color: rgb(172, 211, 109);
+    }
+}
+
+.is-active {
+    background-color: #9b6808;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

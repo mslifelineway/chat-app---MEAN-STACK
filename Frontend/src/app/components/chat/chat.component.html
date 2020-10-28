@@ -1,0 +1,62 @@
+<div class="centered-content">
+  <div class="centered-box">
+    <div class="logout-button"><button class="button is-small" (click)="logout()">Logout</button></div>
+    <div class="sidebar">
+      <div class="profile-container has-background-black">
+        <div class="profile-image-container">
+          <div class="profile-image">
+            <!--TODO: IMAGE GOES HERE -->
+          </div>
+        </div>
+        <div class="profile-details">
+          <p class="has-text-danger"><b>{{currentUser.name}}</b></p>
+        </div>
+      </div>
+      <div class="friend-lists">
+        <!--item 1-->
+        <div *ngFor="let user of otherUsers">
+          <div class="friend-profile" *ngIf="user._id != currentUser._id "
+            [routerLink]="['/chat-world/messages', currentUser._id, user._id]" routerLinkActive="is-active">
+            <div class="profile-image-container">
+              <div class="profile-image">
+                <!--TODO: IMAGE GOES HERE -->
+              </div>
+            </div>
+            <div class="profile-details">
+              <p class="user-name"><b>{{ user.name }}</b></p>
+              <small class="user-status" *ngIf="user.isActive ">ONLINE</small>
+            </div>
+          </div>
+        </div>
+        <!--item 1 end -->
+
+      </div>
+    </div>
+    <div class="chat-container">
+      <div #scrollMe class="message-box">
+
+        <!-- message item (incoming message ) -->
+        <div class="message-container" *ngFor="let message of messages" style="width: 100%;">
+          
+          <div class="message-item " [ngClass]="{'margin-right' : message.senderId != currentUser._id}"
+            [ngClass]="{'margin-left is-pulled-right' : message.senderId == currentUser._id}">
+            <!-- <label *ngIf="message.senderId == currentUser._id; else showOponentName">{{ currentUser.name }}</label>
+            <ng-template #showOponentName><label>{{ receiverName }}</label></ng-template> -->
+            <div *ngIf="message.senderId == currentUser._id" class="options">
+              <button mat-mini-fab color="accent" aria-label="Button to delete the message" (click)="deleteMessage(message._id)">
+                <mat-icon class="is-primary" style="color: white">delete</mat-icon>
+              </button>
+            </div>
+            <span>{{ message.message }}</span>
+            
+          </div>
+        </div>
+
+      </div>
+      <div class="write-message-box form-fields">
+        <input #messageInput (keydown.enter)="sendMessage(messageInput.value)" class="input" type="text" placeholder="start type...">
+        <button class="send-button button" (click)="sendMessage(messageInput.value)">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
